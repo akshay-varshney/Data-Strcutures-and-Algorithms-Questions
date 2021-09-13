@@ -1,10 +1,11 @@
-//program to reverse an array
+//Array: program to reverse an array
 //Q. https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/#
+
 #include<iostream>
 
 using namespace std;
 
-// Recurisve way to swap array
+// Method1: Recurisve way to swap array
 void recursive_reversed(int arr[], int start, int end){
     if(start>=end){
         return;
@@ -13,7 +14,7 @@ void recursive_reversed(int arr[], int start, int end){
     recursive_reversed(arr, start+1, end-1);
 }
 
-// Generalizing the function for both the string and array
+// Method2: Generalizing the function for both the string and array
 template <class t>
 t reversed(t value, int start, int end){
     while(start<=end){
@@ -37,12 +38,17 @@ int main() {
     int start=0;
     int end=n-1;
 
-    reversed(arr, start, end);
-    std::string name="Akshay";
-    std::cout<<reversed(name, 0, 5)<<endl;
+    recursive_reversed(arr, start, end);
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";
     }
+    cout<<"Enter the size of the string: ";
+    cin>>n;
+    cout<<"Enter the string: ";
+    std::string name;
+    cin>>name;
+    std::cout<<reversed(name, 0,n)<<endl;
+   
 }
 
 //Time Complexity : O(n)

@@ -1,4 +1,5 @@
 // Array: Find maximum sum of triplets in an array such than i < j < k and a[i] < a[j] < a[k]
+//https://www.interviewbit.com/problems/maximum-sum-triplet/
 
 // Input:  A = [2, 5, 3, 1, 4, 9]
 //   Maximum sum = 16

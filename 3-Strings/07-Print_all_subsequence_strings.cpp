@@ -1,9 +1,5 @@
 // String: Print all subsequences of a string
 // https://www.geeksforgeeks.org/print-subsequences-string/
-/*
- S = "aaaabbaa"
- Output: aabbaa
- */
 #include<iostream>
 #include<string>
 #include<vector>

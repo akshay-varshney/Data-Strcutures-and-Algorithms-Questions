@@ -6,12 +6,10 @@
 using namespace std;
 
 bool Isvalid(string B){
-    int n=B.size();
-    string temp="";
-    for(int i=0;i<n;i++){
-        temp+=B[i];
+    value=stoi(B);
+    if(B.size()>1 && B[0]=='0'){
+        return false;
     }
-    int value=stoi(temp);
     if(value<=0 || value>255){
             return false;
         }

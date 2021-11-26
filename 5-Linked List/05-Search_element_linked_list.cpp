@@ -1,4 +1,4 @@
-//Linked List:Length of Linked List using Iterative and Recursive approach
+//Linked List: Search element in Linked List using iterative and recursive approach
 
 #include <iostream>
 
@@ -27,24 +27,31 @@ Node* Insert_start(Node *head, int data){
     head=newhead;
     return head;
 }
-//Lenght of linked List using iterative way
-int length_linked(Node *head){
+// Search element using iterative way
+bool search_element(Node *head, int x){
+    if(head==NULL){
+        return 0;
+    }
     Node *temp=new Node();
     temp=head;
-    int count=1;
     while(temp->next!=NULL){
-        count++;
+        if(temp->data==x){
+            return true;
+        }
         temp=temp->next;
     }
-    return count;
+    return false;
 }
-// Length of linked list using recursive way
-int recursive_length(Node *node){
+// search element using recursive way
+bool search_recursive(Node *node, int x){
     if(node->next==NULL){
-        return 1;
+        return false;
+    }
+    if(node->data==x){
+        return true;
     }
     else{
-        return 1+ recursive_length(node->next);
+        return search_recursive(node->next,x);
     }
 }
 
@@ -57,6 +64,6 @@ int main(){
     head=Insert_start(head, 4);
     head=Insert_start(head, 6);
     Print_Linked_list(head);
-    cout<<length_linked(head)<<endl;
-    cout<<recursive_length(head)<<endl;
+    cout<<search_element(head, 16)<<endl;
+    cout<<search_recursive(head,12)<<endl;
 }

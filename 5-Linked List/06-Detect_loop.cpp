@@ -1,16 +1,15 @@
-//Linked List: Search element in Linked List using iterative and recursive approach
-// link: https://www.geeksforgeeks.org/search-an-element-in-a-linked-list-iterative-and-recursive/
-
+//Linked List: Detect Loop in Linked List
 
 #include <iostream>
 
 using namespace std;
 
-// A Node class which has two values data and pointer to next node
+// A Node class which has three values data and pointer to next node and flag to know if node is traversed earlier or not
 class Node{
 public:
     int data;
     Node *next;
+    int flag;
 };
 
 //Printing elements of the linked list
@@ -26,35 +25,23 @@ Node* Insert_start(Node *head, int data){
     Node *newhead= new Node();
     newhead->data=data;
     newhead->next=head;
+    newhead->flag=0;
     head=newhead;
     return head;
 }
-// Search element using iterative way
-bool search_element(Node *head, int x){
-    if(head==NULL){
-        return 0;
-    }
+
+// Checking the loop by checking if linked list is already traversed or not.
+bool detect_loop(Node *head){
     Node *temp=new Node();
     temp=head;
     while(temp->next!=NULL){
-        if(temp->data==x){
+        if(temp->flag==1){
             return true;
         }
+        temp->flag=1;
         temp=temp->next;
     }
     return false;
-}
-// search element using recursive way
-bool search_recursive(Node *node, int x){
-    if(node->next==NULL){
-        return false;
-    }
-    if(node->data==x){
-        return true;
-    }
-    else{
-        return search_recursive(node->next,x);
-    }
 }
 
 // Creating nodes, adding data and printing nodes.
@@ -66,6 +53,7 @@ int main(){
     head=Insert_start(head, 4);
     head=Insert_start(head, 6);
     Print_Linked_list(head);
-    cout<<search_element(head, 16)<<endl;
-    cout<<search_recursive(head,12)<<endl;
+    cout<<detect_loop(head)<<endl;
+    head->next->next->next->next = head;
+    cout<<detect_loop(head)<<endl;
 }

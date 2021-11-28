@@ -39,6 +39,20 @@ Node * reverse_linked_list(Node *head){
     head=prev;
     return  head;
 }
+// Recursive Reversal of linked List
+void reverse(Node* current, Node* prev, Node** head)
+{
+
+    if (current->next==NULL) {
+        *head = current;
+        current->next = prev;
+        return;
+    }
+    Node* Next = current->next;
+    current->next = prev;
+ 
+    reverse(Next, current, head);
+}
 
 
 int main(int argc, const char * argv[]) {
@@ -47,7 +61,10 @@ int main(int argc, const char * argv[]) {
     head=Insert_start(head, 1);
     head=Insert_start(head, 12);
     head=Insert_start(head, 14);
+    head=Insert_start(head, 140);
     Print_Linked_list(head);
     head=reverse_linked_list(head);
+    Print_Linked_list(head);
+    reverse(head, NULL, &head);
     Print_Linked_list(head);
 }

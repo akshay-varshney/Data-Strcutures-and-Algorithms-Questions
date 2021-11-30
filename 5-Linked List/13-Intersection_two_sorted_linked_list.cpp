@@ -2,7 +2,6 @@
 //https://practice.geeksforgeeks.org/problems/intersection-of-two-sorted-linked-lists/1
 
 #include <iostream>
-#include <unordered_map>
 
 using namespace std;
 

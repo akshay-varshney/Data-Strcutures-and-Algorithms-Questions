@@ -53,6 +53,16 @@ Node *middle_element(Node *&head){
     }
     return temp;
 }
+int middle_element_method_2(Node *head){
+    Node *slow=head;
+    Node *fast=head;
+    Node *temp=head;
+    while(fast->next!=NULL && fast->next->next!=NULL){
+        slow=slow->next;
+        fast=fast->next->next;
+    }
+    return slow->data;
+}
 
 int main() {
     Node *head=new Node();
@@ -65,4 +75,5 @@ int main() {
     Print_Linked_list(head);
     Node *ans=middle_element(head);
     Print_Linked_list(ans);
+    cout<<middle_element_method_2(head)<<endl;
 }

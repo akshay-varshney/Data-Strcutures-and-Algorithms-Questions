@@ -26,6 +26,10 @@ Divided in two sections, 3(a) and 3(b). First Complete all the questions from 3(
 4. Searching and sorting: This section will include questions from Searching and Sorting.
 
     Searching and Sorting: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/4-Sorting%20and%20Searching
+    
+5. Linked List: This section will include questions from Linked List.
+
+    Linked List: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/5-Linked%20List
 
 
 If you want to contribute feel free to raise a PR. 

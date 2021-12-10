@@ -15,8 +15,21 @@ Divided in two sections, 1(a) and 1(b). First Complete all the questions from 1(
 2. 2D Array or Matrix: This section will include questions from Matrix.
 
     Matrix: https://github.com/akshay-varshney/DSA_Questions/tree/main/2-%20Matrix
-    
+ 
+3. Strings: String is the most asked Data structure in interview. Almost in every interview it has a question from strings.
+Divided in two sections, 3(a) and 3(b). First Complete all the questions from 3(a) if you still didn't feel confident then you can check questions from 3(b)
 
+      Strings-Part-1 ->> https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/3(a)-Strings
+
+      Strings-Part-2 ->> https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/3(b)-Strings
+      
+4. Searching and sorting: This section will include questions from Searching and Sorting.
+
+    Searching and Sorting: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/4-Sorting%20and%20Searching
+    
+5. Linked List: This section will include questions from Linked List.
+
+    Linked List: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/5-Linked%20List
 
 
 If you want to contribute feel free to raise a PR. 

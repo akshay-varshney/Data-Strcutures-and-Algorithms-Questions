@@ -1,6 +1,4 @@
-// Linked List: Add two numbers as list
-//https://www.interviewbit.com/problems/add-two-numbers-as-lists/
-
+// Stack: Implementing Stack using Arrays
 
 #include <iostream>
 

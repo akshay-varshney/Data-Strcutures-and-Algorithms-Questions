@@ -1,4 +1,4 @@
-// Queue: Implement Dequeue as Stack
+// Queue: Implement Deque as Queue
 
 
 #include <iostream>
@@ -15,8 +15,8 @@ private:
     Node* front=NULL;
     Node* rear=NULL;
 public:
-    void Push(int x);
-    void Pop();
+    void Enque(int x);
+    void Deque();
     bool isEmpty(){
         return (front==NULL);
     }
@@ -39,7 +39,7 @@ int DeQueue::Size(){
 }
 
 
-void DeQueue::Push(int x){
+void DeQueue::Enque(int x){
     Node *temp=new Node();
     temp->data=x;
     temp->next=NULL;
@@ -54,16 +54,16 @@ void DeQueue::Push(int x){
     rear=temp;
 }
 
-void DeQueue::Pop(){
+void DeQueue::Deque(){
     if(!isEmpty()){
-        Node *temp= rear;
-        cout<<"Element Popped is: "<<temp->data<<endl;
-        rear=rear->prev;
-        if(rear){
-            rear->next=NULL;
+        Node *temp= front;
+        cout<<"Element dequed is: "<<temp->data<<endl;
+        front=front->next;
+        if(front){
+            front->prev=NULL;
         }
         if(rear==NULL){
-            front=NULL;
+            rear=NULL;
         }
         delete temp;
     }
@@ -78,13 +78,13 @@ void DeQueue::Print() {
     cout<<endl;
 }
 
-class Stack: public DeQueue{
+class Queue: public DeQueue{
 public:
-    void push(int data){
-        Push(data);
+    void enque(int data){
+        Enque(data);
     }
-    void pop(){
-        Pop();
+    void deque(){
+        Deque();
     }
     void display(){
         Print();
@@ -92,19 +92,22 @@ public:
 };
 
 int main(){
-    Stack S1;
-    S1.push(1);
-    S1.push(2);
-    S1.push(3);
-    S1.push(4);
-    cout << "Stack: ";
-    S1.display();
-    S1.pop();
-    cout << "Stack: ";
-    S1.display();
-    S1.Push(5);
-    cout<<"Stack is: ";
-    S1.display();
-    cout<<"Stack size: "<<S1.Size()<<endl;
-    cout<<"Stack is empty: "<<S1.isEmpty()<<endl;
+    Queue Q1;
+    Q1.enque(1);
+    Q1.enque(2);
+    Q1.enque(3);
+    Q1.enque(4);
+    cout << "Queue: ";
+    Q1.display();
+    Q1.deque();
+    cout << "Queue: ";
+    Q1.display();
+    Q1.enque(5);
+    cout<<"Queue is: ";
+    Q1.display();
+    cout<<"Queue size: "<<Q1.Size()<<endl;
+    cout<<"Queue is empty: "<<Q1.isEmpty()<<endl;
+    Q1.deque();
+    cout << "Queue: ";
+    Q1.display();
 }

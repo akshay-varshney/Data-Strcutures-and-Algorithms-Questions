@@ -1,4 +1,6 @@
 //Binary Tree: Inorder traversal of Tree using Iterative and Recursive way
+// Inorder (Left, Root, Right)
+
 
 #include <iostream>
 #include <stack>

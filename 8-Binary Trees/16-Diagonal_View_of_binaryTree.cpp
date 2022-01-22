@@ -1,0 +1,76 @@
+//Binary Tree: Diagonal View of the Tree.
+
+//https://www.geeksforgeeks.org/diagonal-traversal-of-binary-tree/
+
+
+#include <iostream>
+#include <queue>
+
+using namespace std;
+
+class Node {
+
+public:
+    int data;
+    Node* left;
+    Node* right;
+    Node *CreateNode(int data);
+    Node *InsertNode(Node* root, int data);
+    void diagonalTraversal(Node * root);
+    
+};
+
+Node* Node::CreateNode(int data)
+{
+    Node* newNode = new Node();
+    if (!newNode) {
+        return NULL;
+    }
+    newNode->data = data;
+    newNode->left = newNode->right = NULL;
+    return newNode;
+}
+void Node::diagonalTraversal(Node *root){
+    queue<Node *> Q1;
+    if(root==NULL){
+        return;
+    }
+    Q1.push(root);
+    while(!Q1.empty()){
+        Node * temp= Q1.front();
+        Q1.pop();
+        if(temp==NULL){
+            if(Q1.empty()){
+                return;
+            }
+            cout<<endl;
+            
+        }
+        else{
+            while (temp) {
+                cout<<temp->data<<" ";
+                if(temp->left){
+                    Q1.push(temp->left);
+                }
+                temp=temp->right;
+            }
+        }
+    }
+    
+}
+
+int main()
+{
+    Node BT;
+    Node* root = BT.CreateNode(3);
+    root->left = BT.CreateNode(2);
+    root->right = BT.CreateNode(1);
+    root->left->left = BT.CreateNode(4);
+    root->left->right= BT.CreateNode(5);
+    root->right->left=BT.CreateNode(6);
+    root->right->right=BT.CreateNode(7);
+    cout<<"Diagonal View of the Tree: ";
+    BT.diagonalTraversal(root);
+    cout<<endl;
+
+}

@@ -61,10 +61,19 @@ void Node::diagonalTraversal(Node *root){
 
 int main()
 {
+    /*
+     Binary Tree
+        1
+       /   \
+      2     3
+    /   \  /  \
+   4    5  6   7
+    
+     */
     Node BT;
-    Node* root = BT.CreateNode(3);
+    Node* root = BT.CreateNode(1);
     root->left = BT.CreateNode(2);
-    root->right = BT.CreateNode(1);
+    root->right = BT.CreateNode(3);
     root->left->left = BT.CreateNode(4);
     root->left->right= BT.CreateNode(5);
     root->right->left=BT.CreateNode(6);

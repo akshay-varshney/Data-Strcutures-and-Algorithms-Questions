@@ -48,6 +48,17 @@ bool Node::isBalanced(Node *root)
 }
 int main()
 {
+    
+    /*
+        Binary Tree
+           1
+          /   \
+         2     3
+       /   \  /  \
+      4    5  6   7
+       
+        */
+    
     Node BT;
     Node* root = BT.CreateNode(3);
     root->left = BT.CreateNode(2);

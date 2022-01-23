@@ -33,26 +33,36 @@ Node* Node::CreateNode(int data)
 Node* Node::lca(Node* root ,int n1 ,int n2 )
 {
 
-    if(root->data==n1 || root->data==n2){
+    if(root->data==n1 || root->data==n2)
+    {
            return root;
-       }
-    if(!root->left && !root->right)
+    }
+    if(root==NULL)
     {
         return NULL;
     }
    Node *LEFT=NULL;
    Node * RIGHT=NULL;
-   if(root->left){
+   if(root->left)
+   {
        LEFT=lca(root->left, n1, n2);
    }
-   if(root->right){
+   if(root->right)
+   {
        RIGHT= lca(root->right, n1, n2);
    }
-   if(LEFT && RIGHT)
+   if(LEFT!=NULL && RIGHT!=NULL)
    {
        return root;
     }
-    return LEFT==NULL? RIGHT:LEFT;
+    if(LEFT==NULL && RIGHT==NULL){
+        return NULL;
+    }
+    if(LEFT!=NULL){
+        return lca(root->left, n1, n2);
+    }
+    
+    return lca(root->right, n1, n2);
 }
 int main()
 {
@@ -64,6 +74,6 @@ int main()
     root->left->right= BT.CreateNode(5);
     root->right->left=BT.CreateNode(6);
     root->right->right=BT.CreateNode(7);
-    Node *temp=BT.lca(root, 1, 3);
+    Node *temp=BT.lca(root, 7, 3);
     cout<<"LCA is "<<temp->data<<endl;
 }

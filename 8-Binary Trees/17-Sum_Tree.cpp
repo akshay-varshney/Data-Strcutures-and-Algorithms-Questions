@@ -17,6 +17,7 @@ public:
     Node *CreateNode(int data);
     Node *InsertNode(Node* root, int data);
     int sumTree(Node* root);//, stack<int> &S);
+    void postorder(Node* root);
     
 };
 
@@ -40,7 +41,15 @@ int Node::sumTree(Node* root)//, stack<int> &S)
 
     return root->data + first;
 }
-
+void Node::postorder(Node* root)
+{
+    if (root == NULL)
+        return;
+   
+    postorder(root->left);
+    postorder(root->right);
+    cout <<" "<< root->data;
+}
 
 int main()
 {
@@ -53,7 +62,11 @@ int main()
     root->right->left=BT.CreateNode(6);
     root->right->right=BT.CreateNode(7);
     stack<int> S;
+    BT.postorder(root);
+    cout<<endl;
+    
     BT.sumTree(root);//,S);
+    BT.postorder(root);
     cout<<endl;
 
 }

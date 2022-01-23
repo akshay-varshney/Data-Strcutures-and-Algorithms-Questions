@@ -73,6 +73,17 @@ void Node::level_order_Traversal(Node* root, int H){
 
 int main()
 {
+    
+    /*
+        Binary Tree
+           3
+          /   \
+         2     1
+       /   \  /  \
+      4    5  6   7
+       
+        */
+    
     Node BT;
     Node* root = BT.CreateNode(3);
     root->left = BT.CreateNode(2);

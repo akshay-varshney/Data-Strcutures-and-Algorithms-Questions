@@ -62,6 +62,17 @@ void Node::recursive_Preorder(Node *root){
 
 int main()
 {
+    /*
+        Binary Tree
+           1
+          /   \
+         2     3
+       /   \  /  \
+      4    5  6   7
+               \
+                8
+        */
+    
     Node BT;
     Node* root = BT.CreateNode(1);
     root->left = BT.CreateNode(2);

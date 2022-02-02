@@ -30,6 +30,11 @@ Divided in two sections, 3(a) and 3(b). First Complete all the questions from 3(
 5. Linked List: This section will include questions from Linked List.
 
     Linked List: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/5-Linked%20List
+    
+6. Stacks: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/6-Stack
+7. Queue: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/7-Queue
+8. Binary Trees: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/8-Binary%20Trees
+9. Binary Search Trees: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/9-Binary%20Search%20Trees
 
 
 If you want to contribute feel free to raise a PR. 

@@ -1,7 +1,6 @@
 //Binary Search Tree: Find the Largest BST in Binary Tree
 
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -88,10 +87,10 @@ int main()
     root->left= new Node(20);
     root->right= new Node(30);
     root->left->left= new Node(5);
-    cout<<"inorder Traversal of Tree 1: ";
+    cout<<"Inorder Traversal of Tree: ";
     BT.inorder(root);
     cout<<endl;
-    cout<<"Largest BST in BT "<<BT.largestBSTinBT(root).ans<<endl;
+    cout<<"Largest BST size in a Binary Tree: "<<BT.largestBSTinBT(root).ans<<endl;
   
 }
 

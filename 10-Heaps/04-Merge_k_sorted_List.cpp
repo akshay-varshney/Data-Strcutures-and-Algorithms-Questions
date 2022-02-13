@@ -1,5 +1,5 @@
 
-// Min Heap: Merge k-Sorted Array
+// Min Heap: Merge k-Sorted List
 //https://leetcode.com/problems/merge-k-sorted-lists/
 
 /*
@@ -14,11 +14,11 @@
 using namespace std;
 
 struct Node {
-    int val;
+    int data;
     Node *next;
-    Node() : val(0), next(nullptr) {}
-    Node(int x) : val(x), next(nullptr) {}
-    Node(int x, Node *next) : val(x), next(next) {}
+    Node() : data(0), next(nullptr) {}
+    Node(int x) : data(x), next(nullptr) {}
+    Node(int x, Node *next) : data(x), next(next) {}
 };
 
 class Solution {
@@ -34,7 +34,7 @@ class Solution {
     struct compare {
     bool operator()(node a, node b)
     {
-        return a.head->val >b.head->val;
+        return a.head->data >b.head->data;
     }
 };
 public:

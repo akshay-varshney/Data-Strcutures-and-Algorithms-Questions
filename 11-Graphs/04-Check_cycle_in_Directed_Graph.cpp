@@ -1,3 +1,4 @@
+
 // Graphs: Check Cycle in a Directed Graph
 // https://www.geeksforgeeks.org/detect-cycle-in-a-graph/
 
@@ -10,12 +11,11 @@ class Graph
 {
     int V;
     vector<int> *adj;
-    vector<int> visited{V, false};
 public:
     Graph(int v);
     void addEdge(int v, int w);
     bool iscyclic();
-    bool checkCycle(vector<int> visited, int current);
+    bool checkCycle(bool visited[], int current);
 };
 
 Graph::Graph(int v)
@@ -30,7 +30,7 @@ void Graph::addEdge(int v, int w)
     adj[v].push_back(w);
 }
 
-bool Graph::checkCycle(vector<int> visited, int current)
+bool Graph::checkCycle(bool visited[], int current)
 {
     if(visited[current]==true)
         return true;
@@ -46,6 +46,11 @@ bool Graph::checkCycle(vector<int> visited, int current)
 
 bool Graph::iscyclic(){
     bool flag=false;
+    bool *visited= new bool[V];
+    for(int i=0;i<V;i++){
+        visited[i]=false;
+    }
+    
     // Traversing each vertices
     for(int i=0; i<V;i++){
         visited[i]= true;
@@ -85,6 +90,13 @@ int main()
     g.addEdge(3, 3);
     cout << "The given graph contains cycle: ";
     cout<<g.iscyclic()<<endl;
+    Graph g1(4);
+    g1.addEdge(0, 1);
+    g1.addEdge(0, 2);
+    g1.addEdge(1, 2);
+    g1.addEdge(2, 3);
+    cout << "The given graph contains cycle: ";
+    cout<<g1.iscyclic()<<endl;
     return 0;
 }
 

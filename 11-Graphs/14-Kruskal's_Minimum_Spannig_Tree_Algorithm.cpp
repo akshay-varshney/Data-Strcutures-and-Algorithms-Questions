@@ -7,28 +7,28 @@ using namespace std;
 
 
 class disjoint {
-    int* parent;
-    int* rank;
+    vector<int> *parent;
+    vector<int> *rank;
 
 public:
     disjoint(int n)
     {
-        parent = new int[n];
-        rank = new int[n];
+        parent = new vector<int>(n);
+        rank = new vector<int>(n);
 
         for (int i = 0; i < n; i++) {
-            parent[i] = -1;
-            rank[i] = 1;
+            (*parent)[i] = -1;
+            (*rank)[i] = 1;
         }
     }
 
     // Find function
     int find(int i)
     {
-        if (parent[i] == -1)
+        if ((*parent)[i] == -1)
             return i;
 
-        return parent[i] = find(parent[i]);
+        return (*parent)[i] = find((*parent)[i]);
     }
     // union function
     void _union(int x, int y)
@@ -37,13 +37,17 @@ public:
         int s2 = find(y);
 
         if (s1 != s2) {
-            if (rank[s1] < rank[s2]) {
-                parent[s1] = s2;
-                rank[s2] += rank[s1];
+            if ((*rank)[s1] < (*rank)[s2]) {
+                (*parent)[s1] = s2;
             }
+            else if ((*rank)[s1] > (*rank)[s2]) {
+                (*parent)[s2] = s1;
+            }
+            //Both have same rank and so anyone can be made as parent
             else {
-                parent[s2] = s1;
-                rank[s1] += rank[s2];
+                (*parent)[s2] = s1;
+                (*rank)[s1]++;
+                //Increase rank of parent
             }
         }
     }
@@ -85,7 +89,7 @@ public:
                     << endl;
             }
         }
-        cout << "Minimum Cost Spanning Tree: " << ans;
+        cout << "Minimum Cost Spanning Tree: " << ans<<endl;
     }
 };
 int main()

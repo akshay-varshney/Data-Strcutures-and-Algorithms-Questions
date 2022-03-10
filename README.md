@@ -6,22 +6,20 @@ Every Code has sample Inputs so you just need to fork repository and start pract
 
 TOPICS:
 1. Arrays: Array is the most used and most important data structure. Almost in every interview it has a question from array. 
-Divided in two sections, 1(a) and 1(b). First Complete all the questions from 1(a) if you still didn't feel confident then you can check questions from 1(b)
 
-      Arrays-Part-1 ->> https://github.com/akshay-varshney/DSA_Questions/tree/main/1(a)-Arrays
+      Arrays ->> https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/01-Arrays
 
-    Arrays-Part-2 ->> https://github.com/akshay-varshney/DSA_Questions/tree/main/1(b)-Arrays
+
 
 2. 2D Array or Matrix: This section will include questions from Matrix.
 
     Matrix: https://github.com/akshay-varshney/DSA_Questions/tree/main/2-%20Matrix
  
 3. Strings: String is the most asked Data structure in interview. Almost in every interview it has a question from strings.
-Divided in two sections, 3(a) and 3(b). First Complete all the questions from 3(a) if you still didn't feel confident then you can check questions from 3(b)
+)
 
-      Strings-Part-1 ->> https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/3(a)-Strings
+      Strings ->> https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/03-Strings
 
-      Strings-Part-2 ->> https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/3(b)-Strings
       
 4. Searching and sorting: This section will include questions from Searching and Sorting.
 
@@ -35,6 +33,12 @@ Divided in two sections, 3(a) and 3(b). First Complete all the questions from 3(
 7. Queue: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/7-Queue
 8. Binary Trees: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/8-Binary%20Trees
 9. Binary Search Trees: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/9-Binary%20Search%20Trees
+10. Heaps: 
+https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/10-Heaps
+11. Graphs:
+https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/11-Graphs
+12. BackTracking:
+https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/12-BackTracking
 
 
 If you want to contribute feel free to raise a PR. 

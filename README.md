@@ -16,7 +16,6 @@ TOPICS:
     Matrix: https://github.com/akshay-varshney/DSA_Questions/tree/main/2-%20Matrix
  
 3. Strings: String is the most asked Data structure in interview. Almost in every interview it has a question from strings.
-)
 
       Strings ->> https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/03-Strings
 
@@ -30,13 +29,19 @@ TOPICS:
     Linked List: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/5-Linked%20List
     
 6. Stacks: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/6-Stack
+
 7. Queue: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/7-Queue
+
 8. Binary Trees: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/8-Binary%20Trees
+
 9. Binary Search Trees: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/9-Binary%20Search%20Trees
+
 10. Heaps: 
 https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/10-Heaps
+
 11. Graphs:
 https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/11-Graphs
+
 12. BackTracking:
 https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/tree/main/12-BackTracking
 

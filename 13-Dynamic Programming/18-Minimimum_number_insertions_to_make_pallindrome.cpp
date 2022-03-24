@@ -65,14 +65,14 @@ int main(){
             dp[i][j]=-1;
         }
     }
-    cout<<"Total Number of Insertions by memoization: "<<n-memoizationLCS(A, B, n, m, dp)<<endl;
+    cout<<"Total Number of Insertions by memoization solution: "<<n-memoizationLCS(A, B, n, m, dp)<<endl;
     vector<vector<int>> dp2(n+1, vector<int> (m+1));
     for(int i=0; i<=n; i++){
         for(int j=0;j<=m;j++){
             dp2[i][j]=-1;
         }
     }
-    cout<<"Total Number of Insertions by TopDown: "<<n-topDownLCS(A, B, n, m, dp2)<<endl;
+    cout<<"Total Number of Insertions by TopDown solution: "<<n-topDownLCS(A, B, n, m, dp2)<<endl;
     dp2.clear();
     dp.clear();
 }

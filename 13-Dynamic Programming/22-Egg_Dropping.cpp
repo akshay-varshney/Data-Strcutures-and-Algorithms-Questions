@@ -52,6 +52,36 @@ int MemoizationEggdrop(int e, int f, vector<vector<int>>& dp){
     return dp[e][f]=mini;
 }
 
+
+// Method 3: By using Memoization
+int optimizedMemoizationEggdrop(int e, int f, vector<vector<int>>& dp){
+    if(f==0 || f==1)
+        return dp[e][f]=f;
+    if(e==0)
+        return dp[e][f]=f;
+    if(dp[e][f]!=-1)
+        return dp[e][f];
+    int mini= INT_MAX;
+    for(int k=1;k<f; k++){
+        int left, right;
+        if(dp[e-1][k-1]!=-1)
+            left=dp[e-1][k-1];
+        else
+        {
+            left=optimizedMemoizationEggdrop(e-1, k-1, dp);
+            dp[e-1][k-1]=left;
+        }
+        if(dp[e][f-k]!=-1)
+            right=dp[e][f-k];
+        else{
+            right=optimizedMemoizationEggdrop(e, f-k, dp);
+            dp[e][f-k]=right;
+        }
+        int temp= max(left, right) + 1;
+        mini=min(mini,temp);
+    }
+    return dp[e][f]=mini;
+}
 int main(){
     int f= 10;
     int e=2;
@@ -65,5 +95,14 @@ int main(){
     }
     cout<<MemoizationEggdrop(e,f,dp)<<endl;
     dp.clear();
+    
+    vector<vector<int>> dp2(f+1, vector<int> (e+1));
+    for(int i=0; i<=e; i++){
+        for(int j=0;j<=f;j++){
+            dp2[i][j]=-1;
+        }
+    }
+    cout<<optimizedMemoizationEggdrop(e,f,dp2)<<endl;
+    dp2.clear();
 }
 

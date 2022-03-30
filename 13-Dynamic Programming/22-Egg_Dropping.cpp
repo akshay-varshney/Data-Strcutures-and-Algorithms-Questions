@@ -25,7 +25,7 @@ int recursiveEggdrop(int e, int f){
     if(e==0)
         return f;
     int mini= INT_MAX;
-    for(int k=1;k<f; k++){
+    for(int k=1;k<=f; k++){
         int temp= max(recursiveEggdrop(e-1, k-1), recursiveEggdrop(e,f-k)) + 1;
         mini=min(mini,temp);
     }
@@ -45,7 +45,7 @@ int MemoizationEggdrop(int e, int f, vector<vector<int>>& dp){
     if(dp[e][f]!=-1)
         return dp[e][f];
     int mini= INT_MAX;
-    for(int k=1;k<f; k++){
+    for(int k=1;k<=f; k++){
         int temp= max(MemoizationEggdrop(e-1, k-1, dp), MemoizationEggdrop(e, f-k, dp)) + 1;
         mini=min(mini,temp);
     }
@@ -62,7 +62,7 @@ int optimizedMemoizationEggdrop(int e, int f, vector<vector<int>>& dp){
     if(dp[e][f]!=-1)
         return dp[e][f];
     int mini= INT_MAX;
-    for(int k=1;k<f; k++){
+    for(int k=1;k<=f; k++){
         int left, right;
         if(dp[e-1][k-1]!=-1)
             left=dp[e-1][k-1];

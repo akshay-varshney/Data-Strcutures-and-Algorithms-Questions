@@ -2,10 +2,11 @@
 // https://practice.geeksforgeeks.org/problems/merge-two-sorted-arrays5135/1#
 
 #include<iostream>
+#include<vector>
 
 using namespace std;
 // Method 1: Time taken woyld be more as we are using some sorting in arr2
-int merge(int arr1[], int arr2[], int n, int m){
+int merge(vector<int> arr1, vector<int> arr2, int n, int m){
     int start1=0,start2=0;
     if (n<=0){
         for(int i=0;i<m;i++){
@@ -42,7 +43,7 @@ int merge(int arr1[], int arr2[], int n, int m){
 
 // Method 2: Traverssing from back in which we placing the greater element first and then setting up smaller one
 // Space: O(1) amd Time O(m*n)
-void merge_2(int ar1[], int ar2[], int m, int n){
+void merge_2(vector<int>& ar1, vector<int>& ar2, int m, int n){
    
     for (int i=n-1; i>=0; i--)
         {
@@ -64,17 +65,17 @@ void merge_2(int ar1[], int ar2[], int m, int n){
             }
         }
 }
-void pr(int arr[], int n){
+void pr(vector<int> &arr, int n){
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";
     }
     cout<<endl;
 }
 int main(){
-    int arr1[] = {1, 3, 5, 7};
-    int arr2[] = {0,2, 6, 8, 9};
-    int n=sizeof(arr1)/sizeof(arr1[0]);
-    int m=sizeof(arr2)/sizeof(arr2[0]);
+    vector<int> arr1 = {1, 3, 5, 7};
+    vector<int> arr2 = {0,2, 6, 8, 9};
+    int n= arr1.size();
+    int m= arr2.size();
 //    merge(arr1,arr2,n,m); // Method-1
     merge_2(arr1, arr2, n, m); // Method -2
     pr(arr1, n);

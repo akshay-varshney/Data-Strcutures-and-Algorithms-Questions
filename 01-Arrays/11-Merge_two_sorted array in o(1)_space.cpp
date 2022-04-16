@@ -1,4 +1,3 @@
-
 // Array: Merge two sorted Arrays
 // https://practice.geeksforgeeks.org/problems/merge-two-sorted-arrays5135/1#
 
@@ -50,13 +49,15 @@ void merge_2(int ar1[], int ar2[], int m, int n){
             
             int j, last = ar1[m-1];
             j=m-2;
+            bool flag = false;
             while(j >= 0 && ar1[j] > ar2[i])
             {
                 ar1[j+1] = ar1[j];
                 j--;
+                flag = true;
             }
             // If there was a greater element in a1 as compared to a2
-            if (j != m-2 || last > ar2[i])
+            if (flag || last > ar2[i])
             {
                 ar1[j+1] = ar2[i];
                 ar2[i] = last;

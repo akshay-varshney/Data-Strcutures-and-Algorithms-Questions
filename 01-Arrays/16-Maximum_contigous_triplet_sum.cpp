@@ -1,5 +1,5 @@
 // array: Maximum Sum triplet Contigous
-
+//https://www.geeksforgeeks.org/find-maximum-sum-triplets-array-j-k-ai-aj-ak/
 #include<vector>
 #include<iostream>
 

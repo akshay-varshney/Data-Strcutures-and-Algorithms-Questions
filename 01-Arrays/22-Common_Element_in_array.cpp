@@ -19,8 +19,9 @@ vector<int> _common_element(vector<int> A, vector<int> B, vector<int> C, int n1,
     vector<int> v;
     while(i<n1 && j<n2 && k<n3){
         if(A[i]==B[j] && B[j]==C[k]){
-            auto it=v.end()-1;
-            if(v.size()>0 && *it==A[i] ){
+            // If we have duplicate elements in array then in that case we don't need to push again and again
+            int n = v.size();
+            if(v.size()>0 && v[n-1]==A[i] ){
                 i++;
                 j++;
                 k++;

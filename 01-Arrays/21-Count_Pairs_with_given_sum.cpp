@@ -32,6 +32,7 @@ int getpair_count(vector<int> A,int n, int x){
         std::unordered_map<int, int>::iterator it = m1.find(x-A[i]);
         
            if (it != m1.end()) {
+               // If element is pointing to itself then decremenet the count by 1, as element cannot make pair with itself.
                if(A[i]==it->first){
                    it->second--;
                    flag=true;

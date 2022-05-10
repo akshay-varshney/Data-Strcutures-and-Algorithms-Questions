@@ -58,7 +58,7 @@ bool ispallindrome(Node *head){
     Node *fast=head;
     Node *temp=head;
     // Traversing linked list and finding the middle element of the linked list
-    while(fast->next!=NULL && fast->next->next!=NULL){
+    while(fast!=NULL && fast->next!=NULL){
         slow=slow->next;
         fast=fast->next->next;
     }

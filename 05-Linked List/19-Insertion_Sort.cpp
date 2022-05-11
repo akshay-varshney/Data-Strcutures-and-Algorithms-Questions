@@ -37,58 +37,60 @@ void append(Node *&head, int data){
 }
 // Taking two pointer one that always start from head and another will keep updating to the next node of the current node
 
-Node *Insertion_sort(Node * &head){
+Node *Insertion_sort(Node * &head)
+{
     Node *start=head->next;
     Node *temp=head;
     Node *prev=NULL;
     bool flag=false;
-    while(start!=NULL){
+    while(start!=NULL)
+    {
         flag=false;
         temp=head; // updating first pointer at the start of the list
         prev=NULL;
-        while (temp!=start) {
-            if(temp->data > start->data){
+        while (temp!=start)
+        {
+            if(temp->data > start->data)
+            {
                 flag=true;
                 break;
             }
             prev=temp;
             temp=temp->next;
         }
-        if(flag){
+        if(flag)
+        {
             // If head needs to be updated
             if(prev==NULL){
-                Node *Next=start;
-                while(temp->next!=start){
+                while(temp->next!=start)
                     temp=temp->next;
-                } // reaching to previous of the current node
-                temp->next=Next->next;
-                Next->next=head;
-                head=Next;
+                 // reaching to previous of the current node
+                temp->next=start->next;
+                start->next=head;
+                head=start;
                 start=temp->next;
             }
             else{
-                while(temp->next!=start){
+                while(temp->next!=start)
                     temp=temp->next;
-                }
+                
                 // Inserting and deleting node at the required position
-                Node *Next=temp->next;
-                temp->next=NULL;
-                temp->next=Next->next;
-                Next->next=NULL;
-                Node *PREV=prev->next;
-                prev->next=Next;
-                Next->next=PREV;
+                temp->next=start->next; // cutting the current node link.
+                Node *PREV=prev->next; // copying the elements after prev
+                prev->next=start; // connecting prev with element to be replaced.
+                start->next=PREV; // connecting element next with previous next
                 start=temp->next;
             }
         }
-        else{
+        else
             start=start->next;
-        }
     }
     return head;
 }
 
-int main() {
+
+int main()
+{
     Node *head=new Node();
     head=NULL;
     append(head, 4);

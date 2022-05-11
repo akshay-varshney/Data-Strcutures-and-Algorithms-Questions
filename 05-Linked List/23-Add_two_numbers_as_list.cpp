@@ -8,19 +8,20 @@
  */
 #include <iostream>
 
-
-
 using namespace std;
 
-class Node{
+class Node
+{
 public:
     int data;
     Node *next;
-    Node *prev;
 };
-void Print_Linked_list(Node *n){
+
+void Print_Linked_list(Node *n)
+{
     Node *PREV=n;
-    while(n!=nullptr){
+    while(n!=nullptr)
+    {
         cout<<n->data<<"-><-";
         PREV=n;
         n=n->next;
@@ -28,43 +29,45 @@ void Print_Linked_list(Node *n){
     cout<<endl;
 }
 
-void Insert_start(Node *&head, int data){
+void Insert_start(Node *&head, int data)
+{
     Node *newnode=new Node();
     newnode->data=data;
     newnode->next=head;
     newnode->prev=NULL;
-    if(head!=NULL){
+    if(head!=NULL)
         head->prev=newnode;
-    }
+    
 }
 
 
 // Append nodes at the end of the linked list.
-void append(Node *&head, int data){
+void append(Node *&head, int data)
+{
     Node *newnode=new Node();
     newnode->next=NULL;
     newnode->data=data;
     Node *last=head;
-    if(head==NULL){
+    if(head==NULL)
+    {
         head=newnode;
         newnode->prev=NULL;
         return;
     }
-    while(last->next!=NULL){
+    while(last->next!=NULL)
         last=last->next;
-    }
+    
     last->next=newnode;
     newnode->prev=last;
     return;
 }
 
 Node * add_Node(Node* head, Node* head2){
-    if(head==NULL){
+    if(head==NULL)
         return head2;
-    }
-    if(head2==NULL){
+    if(head2==NULL)
         return head;
-    }
+    
     Node *temp1=head;
     Node *temp2=head2;
     Node *ANS=new Node();
@@ -74,23 +77,41 @@ Node * add_Node(Node* head, Node* head2){
     Node *head3=ANS;
     temp1=temp1->next;
     temp2=temp2->next;
-    while(temp1 || temp2 || carry){
+    while(temp1 || temp2 || carry)
+    {
         Node *NEXT=new Node();
-        NEXT->data=temp2->data+temp1->data+carry;
-        if(temp2->data+temp1->data+carry>=10){
+        int val;
+        if(temp1 && temp2)
+        {
+            val=temp2->data+temp1->data+carry;
+            temp1 = temp1->next;
+            temp2 = temp2->next;
+        }
+        else if(temp2)
+        {
+            val=temp2->data+carry;
+            temp2 = temp2->next;
+        }
+        else
+        {
+            val=temp1->data+carry;
+            temp1 = temp1->next;
+        }
+        NEXT->data =val;
+        if(val>=10)
+        {
             carry=1;
-            NEXT->data=(NEXT->data)%10;
+            NEXT->data=(val)%10;
         }
-        else{
+        else
             carry=0;
-        }
-        if(temp1) temp1=temp1->next;
-        if(temp2) temp2=temp2->next;
+        
         head3->next=NEXT;
         head3=head3->next;
     }
     return ANS;
 }
+
 
 
 int main() {

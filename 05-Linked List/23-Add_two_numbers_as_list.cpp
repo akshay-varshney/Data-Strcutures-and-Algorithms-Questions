@@ -15,6 +15,7 @@ class Node
 public:
     int data;
     Node *next;
+    Node *prev;
 };
 
 void Print_Linked_list(Node *n)

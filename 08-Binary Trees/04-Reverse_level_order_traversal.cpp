@@ -1,9 +1,8 @@
 //Binary Tree: Reverse Level Order Traversal...
 
-
-
 #include <iostream>
 #include <queue>
+#include<stack>
 using namespace std;
 
 class Node {
@@ -17,6 +16,7 @@ class Node {
         int height(Node* root);
         void level_order_Traversal(Node *root, int H);
         void printCurrentLevel(Node* root, int level);
+        void LevelOrderTraversalMethod2(Node* root);
 };
 
 Node* Node::CreateNode(int data)
@@ -64,6 +64,33 @@ void Node::level_order_Traversal(Node* root, int H){
         printCurrentLevel(root, i);
     }
 }
+// Method 2: By using Queue and Stack
+void Node::LevelOrderTraversalMethod2(Node* root)
+{
+    if(root==NULL)
+        return;
+    
+    queue<Node*> Q;
+    stack<int> S;
+    Q.push(root);
+    while(!Q.empty())
+    {
+        Node *temp = Q.front();
+        Q.pop();
+        S.push(temp->data);
+        if(temp->right)
+            Q.push(temp->right);
+        
+        if(temp->left)
+            Q.push(temp->left);
+        
+    }
+    while(!S.empty()){
+        cout<<S.top()<<" ";
+        S.pop();
+    }
+}
+
 
 int main()
 {       /*
@@ -83,8 +110,11 @@ int main()
     root->right->left = BT.CreateNode(5);
     root->right->right = BT.CreateNode(6);
     int H=BT.height(root);
-    cout<<"Level order Traversal: ";
+    cout<<"Reverse Level order Traversal: ";
     BT.level_order_Traversal(root, H);
+    cout<<endl;
+    cout<<"Reverse Level order Traversal: ";
+    BT.LevelOrderTraversalMethod2(root);
     cout<<endl;
     return 0;
 }

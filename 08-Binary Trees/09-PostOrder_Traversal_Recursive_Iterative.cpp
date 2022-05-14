@@ -85,9 +85,9 @@ int main()
     root->left = BT.CreateNode(2);
     root->right = BT.CreateNode(3);
     root->left->left = BT.CreateNode(4);
-    root->right->left = BT.CreateNode(5);
-    root->right->right=BT.CreateNode(6);
-    root->right->left->left = BT.CreateNode(7);
+    root->left->right = BT.CreateNode(5);
+    root->right->left=BT.CreateNode(6);
+    root->right->right = BT.CreateNode(7);
     root->right->left->right = BT.CreateNode(8);
     cout <<"PostOrder Traversal of tree: ";
     BT.postorder(root);

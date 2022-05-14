@@ -18,6 +18,7 @@ class Node {
         int height(Node* root);
         void level_order_Traversal(Node *root, int H);
         void printCurrentLevel(Node* root, int level);
+        void LevelOrderTraversalMethod2(Node* root);
 };
 
 Node* Node::CreateNode(int data)
@@ -65,6 +66,26 @@ void Node::level_order_Traversal(Node* root, int H){
     }
 }
 
+// Method: 2 Uisng Queue
+void Node::LevelOrderTraversalMethod2(Node* root)
+{
+    if(root==NULL)
+        return;
+    
+    queue<Node*> Q;
+    Q.push(root);
+    while(!Q.empty())
+    {
+        Node *temp = Q.front();
+        Q.pop();
+        cout<<temp->data <<" ";
+        if(temp->left)
+            Q.push(temp->left);
+        if(temp->right)
+            Q.push(temp->right);
+    }
+}
+
 int main()
 {
     /*
@@ -86,6 +107,8 @@ int main()
     int H=BT.height(root);
     cout<<"Level order Traversal: ";
     BT.level_order_Traversal(root, H);
+    cout<<endl;
+    BT.LevelOrderTraversalMethod2(root);
     cout<<endl;
     return 0;
 }

@@ -46,12 +46,7 @@ int Node::height(Node* root){
     else{
         int leftHeight=height(root->left);
         int rightHeight=height(root->right);
-        if(leftHeight>rightHeight){
-            return leftHeight+1;
-        }
-        else{
-            return rightHeight+1;
-        }
+        return 1 + max(leftHeight, rightHeight);
     }
 }
 

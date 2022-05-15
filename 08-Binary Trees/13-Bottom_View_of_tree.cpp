@@ -33,7 +33,8 @@ Node* Node::CreateNode(int data)
     return newNode;
 }
 
-vector<int> Node::bottomView(Node *root){
+vector<int> Node::bottomView(Node *root)
+{
     vector<int> ans={};
     queue<pair<Node *, int>> Q1;
     if(root==NULL){
@@ -44,17 +45,22 @@ vector<int> Node::bottomView(Node *root){
     while(!Q1.empty()){
         auto iter=Q1.front();
         Q1.pop();
-        M1.insert(std::make_pair(iter.second, (iter.first)->data));
-        if(iter.first->left!=NULL){
+        auto it = M1.find(iter.second);
+        if(it!=M1.end())
+            it->second = (iter.first)->data;
+        else
+            M1.insert(std::make_pair(iter.second, (iter.first)->data));
+        
+        if(iter.first->left!=NULL)
             Q1.push(std::make_pair(iter.first->left, iter.second-1));
-        }
-        if(iter.first->right!=NULL){
+        
+        if(iter.first->right!=NULL)
             Q1.push(std::make_pair(iter.first->right, iter.second+1));
-        }
+        
     }
-    for(auto it=M1.begin(); it!=M1.end(); it++){
+    for(auto it=M1.begin(); it!=M1.end(); it++)
         ans.push_back(it->second);
-    }
+    
     return ans;
 }
 

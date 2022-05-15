@@ -30,33 +30,31 @@ Node* Node::CreateNode(int data)
     newNode->left = newNode->right = NULL;
     return newNode;
 }
+
 void Node::diagonalTraversal(Node *root){
     queue<Node *> Q1;
-    if(root==NULL){
+    if(root==NULL)
         return;
-    }
+    
     Q1.push(root);
     while(!Q1.empty()){
-        Node * temp= Q1.front();
-        Q1.pop();
-        if(temp==NULL){
-            if(Q1.empty()){
-                return;
-            }
-            cout<<endl;
-            
-        }
-        else{
-            while (temp) {
+        int n= Q1.size();
+        while(n>0)
+        {
+            Node * temp= Q1.front();
+            Q1.pop();
+            while (temp)
+            {
                 cout<<temp->data<<" ";
                 if(temp->left){
                     Q1.push(temp->left);
                 }
                 temp=temp->right;
             }
+            n--;
         }
+        cout<<endl;
     }
-    
 }
 
 int main()
@@ -78,7 +76,7 @@ int main()
     root->left->right= BT.CreateNode(5);
     root->right->left=BT.CreateNode(6);
     root->right->right=BT.CreateNode(7);
-    cout<<"Diagonal View of the Tree: ";
+    cout<<"Diagonal View of the Tree: "<<endl;
     BT.diagonalTraversal(root);
     cout<<endl;
 

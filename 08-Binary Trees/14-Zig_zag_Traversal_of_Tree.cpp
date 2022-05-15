@@ -2,9 +2,8 @@
 
 //https://practice.geeksforgeeks.org/problems/zigzag-tree-traversal/1#
 
-
 #include <iostream>
-
+#include <queue>
 using namespace std;
 
 class Node {
@@ -15,9 +14,7 @@ public:
     Node* right;
     Node *CreateNode(int data);
     Node *InsertNode(Node* root, int data);
-    int height(Node* root);
-    void printCurrentLevel(Node* root, int level);
-    void level_order_Traversal(Node* root, int H);
+    vector<int> zigZagTraversal(Node* root) ;
     
 };
 
@@ -33,42 +30,57 @@ Node* Node::CreateNode(int data)
 }
 
 
-int Node::height(Node* root){
-    if(root==NULL){
-        return 0;
-    }
-    else{
-        int leftHeight=height(root->left);
-        int rightHeight=height(root->right);
-        if(leftHeight>rightHeight){
-            return leftHeight+1;
-        }
-        else{
-            return rightHeight+1;
-        }
-    }
-}
-void Node::printCurrentLevel(Node* root, int level){
-    if(root==NULL){
-        return;
-    }
-    if(level==1){
-        cout<<root->data<<" ";
-    }
-    else if(level%2!=0 && level>1){
-        printCurrentLevel(root->left, level-1);
-        printCurrentLevel(root->right, level-1);
-    }
-    else if(level%2==0 && level>1){
-        printCurrentLevel(root->right, level-1);
-        printCurrentLevel(root->left, level-1);
-    }
-}
+vector<int> Node::zigZagTraversal(Node* root)
+{
+    deque<Node*> q;
+    vector<int> v;
+    q.push_back(root);
+    v.push_back(root->data);
+    Node* temp;
 
-void Node::level_order_Traversal(Node* root, int H){
-    for(int i=1;i<=H;i++){
-        printCurrentLevel(root, i);
+    int l = 1;
+               
+    while (!q.empty()) {
+        int n = q.size();
+
+        for (int i = 0; i < n; i++)
+        {
+            if (l % 2 == 0) {
+                temp = q.back();
+                q.pop_back();
+            }
+            else {
+                temp = q.front();
+                q.pop_front();
+            }
+
+            if (l % 2 != 0) {
+
+                if (temp->right) {
+                    q.push_back(temp->right);
+                    v.push_back(temp->right->data);
+                }
+                if (temp->left) {
+                    q.push_back(temp->left);
+                    v.push_back(temp->left->data);
+                }
+            }
+            else if (l % 2 == 0) {
+
+                if (temp->left) {
+                    q.push_front(temp->left);
+                    v.push_back(temp->left->data);
+                }
+                if (temp->right)
+                {
+                    q.push_front(temp->right);
+                    v.push_back(temp->right->data);
+                }
+            }
+        }
+        l++;
     }
+    return v;
 }
 
 int main()
@@ -92,8 +104,9 @@ int main()
     root->left->right= BT.CreateNode(5);
     root->right->left=BT.CreateNode(6);
     root->right->right=BT.CreateNode(7);
-    int h=BT.height(root);
-    cout<<"Zig Zag Traversal of tree: ";
-    BT.level_order_Traversal(root, h);
+    auto v1= BT.zigZagTraversal(root);
+    for(auto it = v1.begin(); it!=v1.end(); it++){
+        cout<<*it<<" ";
+    }
     cout<<endl;
 }

@@ -1,6 +1,7 @@
 // Graphs: Topological Sort in a Graph
 // For this example, it has been considered that graph is directed and Acyclic.
-
+//The first vertex in topological sorting is always a vertex with in-degree as 0 (a vertex with no incoming edges)
+// https://www.geeksforgeeks.org/topological-sorting/
 // If needed then we need to add the code of isCyclic which is discused in: https://github.com/akshay-varshney/Data-Strcutures-and-Algorithms-Questions/blob/main/11-Graphs/04-Check_cycle_in_Directed_Graph.cpp
 
 #include<iostream>

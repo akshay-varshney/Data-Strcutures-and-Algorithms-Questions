@@ -1,6 +1,9 @@
 // BackTracking: Pallindromic Partitioning
 
 // https://leetcode.com/problems/palindrome-partitioning/
+//Input: s = "aab"
+//Output: [["a","a","b"],["aa","b"]]
+
 
 #include<iostream>
 #include<vector>

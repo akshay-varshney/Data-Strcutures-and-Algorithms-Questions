@@ -81,7 +81,7 @@ double median_binary(vector<int> &A, vector<int> &B){
         else min_right_2=B[partition_y];
         if(max_left_1<=min_right_2 && max_left_2<=min_right_1){
             if((m+n)%2==0){
-                double val=(max(max_left_1,max_left_1)+min(min_right_1,min_right_2))/2;
+                double val=(max(max_left_1,max_left_2)+min(min_right_1,min_right_2))/2;
                 return val;
             }
             else{

@@ -14,10 +14,11 @@ int maximum_subarray(int arr[], int n){
     int summed=0;
     for(int i=0;i<n;i++){
         summed+=arr[i];
+        max_sum=max(max_sum,summed);
         if(summed<0){
             summed=0;
         }
-        max_sum=max(max_sum,summed);
+       
     }
     return max_sum;
 }
